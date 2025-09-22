@@ -1,0 +1,255 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "environmentName":                       { "value": "AZR-GENIA-PREPRD-EASTUSMS" },
+    "greenFieldDeployment":                  { "value": true },
+    "sideBySideDeploy":                      { "value": "${SIDE_BY_SIDE}" },
+    "location":                              { "value": "eastus2" },
+    "aiFoundryLocation":                     { "value": "eastus2" },
+    "psqlLocation":                          { "value": "eastus2" },
+    "cosmosLocation":                        { "value": "eastus2" },
+    "deploymentTags": {
+      "value": {
+        "Responsable":    "Diego Bogota",
+        "Ambiente":      "PREPRD",
+        "AprobadoPor":   "Diego Bogota",
+        "Aplicación":    "GENAI",
+        "Compañía":      "Promigas",
+        "CreadoPor":     "Diego Garcia TI724",
+        "FechaCreación": "2025-09-19",
+        "Proyecto":      "LZ AZURE"
+      }
+    },
+    "principalId":                           { "value": "${AZURE_PRINCIPAL_ID}" },
+    "networkIsolation":                      { "value": true },
+    "useUAI":                                { "value": "${USE_UAI}" },
+    "useCAppAPIKey":                         { "value": "${USE_CAPP_API_KEY}" },
+    "useCMK":                                { "value": false },
+    "useZoneRedundancy":                     { "value": true },
+    "aiSearchResourceId":                    { "value": null },
+    "aiFoundryStorageAccountResourceId":     { "value": null },
+    "aiFoundryCosmosDBAccountResourceId":    { "value": null },
+    "deployAiFoundry":                       { "value": true },
+    "deployAiFoundrySubnet":                 { "value": true },
+    "deployAppConfig":                       { "value": true },
+    "deployAppInsights":                     { "value": true },
+    "deployCosmosDb":                        { "value": true },
+    "deployContainerApps":                   { "value": true },
+    "deployContainerRegistry":               { "value": true },
+    "deployContainerEnv":                    { "value": true },
+    "deployKeyVault":                        { "value": true },
+    "deployVmKeyVault":                      { "value": "${DEPLOY_VM_KEY_VAULT}" },
+    "deployLogAnalytics":                    { "value": true },
+    "deploySearchService":                   { "value": true },
+    "deployStorageAccount":                  { "value": true },
+    "deployPostgres":                        { "value": true },
+    "deployNsgs":                            { "value": true },
+    "deployVM":                              { "value": true },
+    "deploySoftware":                        { "value": true },
+    "deployMcp":                             { "value": true },
+    "deployGroundingWithBing":               { "value": false },
+    "useExistingVNet":                       { "value": false },
+    "deploySubnets":                         { "value": true },
+    "vnetName":                              { "value": "VNET-AZR-GENIA-PREPRD-EASTUSMS" },
+    "virtualNetworkName":                    { "value": "" },
+    "virtualNetworkResourceGroup":           { "value": "" },
+    "aiFoundryAccountName":                  { "value": "aifoundryazrgeniaeastusms" },
+    "aiFoundryProjectName":                  { "value": "aifprojectms" },
+    "aiFoundryProjectDisplayName":           { "value": "aifproyecto de pruebams" },
+    "aiFoundryProjectDescription":           { "value": "aifproyecto de pruebams" },
+    "aiFoundryStorageAccountName":           { "value": "aifstgenia001ms2" },
+    "aiFoundrySearchServiceName":            { "value": "aifsearch-azr-genia-eastusms" },
+    "aiFoundryCosmosDbName":                 { "value": "aifcosmosgenia01ms" },
+    "bingSearchName":                        { "value": "bingsearch-azr-genia-eastusms" },
+    "appConfigName":                         { "value": "appcf3-azr-genia-eastusms" },
+    "appInsightsName":                       { "value": "appins-azr-genia-eastus" },
+    "containerEnvName":                      { "value": "acaenv-azr-genia-eastusms" },
+    "containerRegistryName":                 { "value": "acrazrgeniaeastusms" },
+    "conversationContainerName":             { "value": "acaconvert-azr-genia-eastusms" },
+    "dataIngestContainerAppName":            { "value": "acadata-azr-genia-eastusms" },
+    "datasourcesContainerName":              { "value": "datasr-azr-genia-eastusms" },
+    "dbAccountName":                         { "value": "cosmosazrgeniaeastusms" },
+    "dbDatabaseName":                        { "value": "cosmosdb-azr-genia-eastusms" },
+    "frontEndContainerAppName":              { "value": "acafront-azr-genia-eastusms" },
+    "keyVaultName":                          { "value": "kv3-azr-genia-eastusms" },
+    "logAnalyticsWorkspaceName":             { "value": "law-azr-genia-eastusms" },
+    "searchServiceName":                     { "value": "search-azr-genia-eastusms" },
+    "solutionStorageAccountName":            { "value": "stgenia001ms2" },
+    "postgreSQLName":                        { "value": "psql-azr-genia-eastusms" },
+    "storageAccountName":                    { "value": "stgenia001ms2" },
+    "vmAdminPassword":                       { "value": "$(secretOrRandomPassword)" },
+    "vmSize":                                { "value": "Standard_D4s_v3" },
+    "agentSubnetName":                       { "value": "agent-subnet" },
+    "peSubnetName":                          { "value": "pe-subnet" },
+    "gatewaySubnetName":                     { "value": "gateway-subnet" },
+    "azureBastionSubnetName":                { "value": "AzureBastionSubnet" },
+    "azureFirewallSubnetName":               { "value": "AzureFirewallSubnet" },
+    "azureAppGatewaySubnetName":             { "value": "AppGatewaySubnet" },
+    "jumpboxSubnetName":                     { "value": "jumpbox-subnet" },
+    "acaEnvironmentSubnetName":              { "value": "aca-environment-subnet" },
+    "devopsBuildAgentsSubnetName":           { "value": "devops-build-agents-subnet" },
+    "psqlSubnetName":                        { "value": "psql-subnet" },
+    "agentSubnetPrefix":                     { "value": "192.168.0.0/24" },
+    "peSubnetPrefix":                        { "value": "192.168.1.0/24" },
+    "gatewaySubnetPrefix":                   { "value": "192.168.2.0/26" },
+    "azureBastionSubnetPrefix":              { "value": "192.168.2.64/26" },
+    "azureFirewallSubnetPrefix":             { "value": "192.168.2.128/26" },
+    "azureAppGatewaySubnetPrefix":           { "value": "192.168.3.0/24" },
+    "jumpboxSubnetPrefix":                   { "value": "192.168.4.0/27" },
+    "acaEnvironmentSubnetPrefix":            { "value": "192.168.4.64/27" },
+    "devopsBuildAgentsSubnetPrefix":         { "value": "192.168.4.96/27" },
+    "psqlSubnetPrefix":                      { "value": "192.168.2.192/27" },
+    "modelDeploymentList": {
+      "value": [
+        {
+          "name":           "chat",
+          "model":          "gpt-4o",
+          "modelFormat":    "OpenAI",
+          "type":           "GlobalStandard",
+          "version":        "2024-11-20",
+          "apiVersion":     "2025-01-01-preview",
+          "capacity":       40,
+          "canonical_name": "CHAT_DEPLOYMENT_NAME"
+        },
+        {
+          "name":           "text-embedding",
+          "model":          "text-embedding-3-large",
+          "modelFormat":    "OpenAI",
+          "type":           "Standard",
+          "version":        "1",
+          "apiVersion":     "2025-01-01-preview",
+          "capacity":       40,
+          "canonical_name": "EMBEDDING_DEPLOYMENT_NAME"
+        }
+      ]
+    },
+    "workloadProfiles": {
+      "value": [
+        {
+          "name":                "Consumption",
+          "workloadProfileType": "Consumption"
+        },
+        {
+          "workloadProfileType": "D4",
+          "name":                "main",
+          "minimumCount":        0,
+          "maximumCount":        1
+        }
+      ]
+    },
+    "storageAccountContainersList": {
+      "value": [
+        {
+          "name":           "documents-images",
+          "canonical_name": "DOCUMENTS_IMAGES_STORAGE_CONTAINER"
+        },
+        {
+          "name":           "documents",
+          "canonical_name": "DOCUMENTS_STORAGE_CONTAINER"
+        },
+        {
+          "name":           "nl2sql",
+          "canonical_name": "NL2SQL_STORAGE_CONTAINER"
+        }
+      ]
+    },
+    "databaseContainersList": {
+      "value": [
+        {
+          "name":           "conversations",
+          "canonical_name": "CONVERSATIONS_DATABASE_CONTAINER"
+        },
+        {
+          "name":           "datasources",
+          "canonical_name": "DATASOURCES_DATABASE_CONTAINER"
+        },
+        {
+          "name":           "prompts",
+          "canonical_name": "PROMPTS_CONTAINER"
+        },
+        {
+          "name":           "mcp",
+          "canonical_name": "MCP_CONTAINER"
+        }
+      ]
+    },
+    "containerAppsList": {
+      "value": [
+        {
+          "name":           null,
+          "external":       true,
+          "service_name":   "orchestrator",
+          "profile_name":   "main",
+          "min_replicas":   1,
+          "max_replicas":   1,
+          "canonical_name": "ORCHESTRATOR_APP",
+          "roles": [
+            "AppConfigurationDataReader",
+            "CognitiveServicesUser",
+            "CognitiveServicesOpenAIUser",
+            "AcrPull",
+            "CosmosDBBuiltInDataContributor",
+            "SearchIndexDataReader",
+            "StorageBlobDataReader",
+            "KeyVaultSecretsUser"
+          ]
+        },
+        {
+          "name":           null,
+          "external":       true,
+          "service_name":   "frontend",
+          "profile_name":   "main",
+          "min_replicas":   1,
+          "max_replicas":   1,
+          "canonical_name": "FRONTEND_APP",
+          "roles": [
+            "AppConfigurationDataReader",
+            "AcrPull",
+            "StorageBlobDataReader",
+            "KeyVaultSecretsUser"
+          ]
+        },
+        {
+          "name":           null,
+          "external":       true,
+          "service_name":   "dataingest",
+          "profile_name":   "main",
+          "min_replicas":   1,
+          "max_replicas":   1,
+          "canonical_name": "DATA_INGEST_APP",
+          "roles": [
+            "AppConfigurationDataReader",
+            "CognitiveServicesUser",
+            "CognitiveServicesOpenAIUser",
+            "CosmosDBBuiltInDataContributor",
+            "AcrPull",
+            "SearchIndexDataContributor",
+            "StorageBlobDataContributor",
+            "KeyVaultSecretsUser"
+          ]
+        },
+        {
+          "name":           null,
+          "external":       true,
+          "service_name":   "mcp",
+          "profile_name":   "main",
+          "min_replicas":   1,
+          "max_replicas":   1,
+          "canonical_name": "MCP_APP",
+          "roles": [
+            "AppConfigurationDataReader",
+            "CognitiveServicesUser",
+            "CognitiveServicesOpenAIUser",
+            "CosmosDBBuiltInDataContributor",
+            "AcrPull",
+            "SearchIndexDataContributor",
+            "StorageBlobDataContributor",
+            "StorageQueueDataContributor",
+            "KeyVaultSecretsUser"
+          ]
+        }
+      ]
+    }
+  }
+}
