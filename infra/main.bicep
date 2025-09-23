@@ -651,6 +651,8 @@ module testVmKeyVault 'br/public:avm/res/key-vault/vault:0.13.3' = if (deployVM 
   }
 }
 
+var locationSupportsZones = toLower(location) != 'westus'
+
 // Bastion Host
 module testVmBastionHost 'br/public:avm/res/network/bastion-host:0.8.0' = if (deployVM && networkIsolation) {
   name: 'bastionHost'
@@ -662,7 +664,7 @@ module testVmBastionHost 'br/public:avm/res/network/bastion-host:0.8.0' = if (de
     location: location
     skuName: 'Standard'
     tags: _tags
-    availabilityZones: null
+    availabilityZones: locationSupportsZones && useZoneRedundancy ? [1, 2, 3] : null
 
     // Configuration for the Public IP that the module will create
     publicIPAddressObject: {
@@ -671,7 +673,7 @@ module testVmBastionHost 'br/public:avm/res/network/bastion-host:0.8.0' = if (de
       allocationMethod: 'Static'
       skuName: 'Standard'
       skuTier: 'Regional'
-      zones: null
+      zones: locationSupportsZones && useZoneRedundancy ? [1, 2, 3] : null
       tags: _tags
     }
   }
@@ -718,7 +720,7 @@ module testVm 'br/public:avm/res/compute/virtual-machine:0.15.0' = if (deployVM 
       
     }
     osType: 'Windows'
-    zone: 0
+    zone: locationSupportsZones && useZoneRedundancy ? 1 : null
     nicConfigurations: [
       {
         nicSuffix: '-nic-01'
@@ -3441,3 +3443,8 @@ output DEPLOY_VM_KEY_VAULT bool = deployVmKeyVault
 // ──────────────────────────────────────────────────────────────────────
 #disable-next-line BCP318
 output APP_CONFIG_ENDPOINT string = deployAppConfig ? appConfig.outputs.endpoint : ''
+
+
+
+
+
