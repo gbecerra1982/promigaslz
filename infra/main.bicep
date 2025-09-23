@@ -664,16 +664,18 @@ module testVmBastionHost 'br/public:avm/res/network/bastion-host:0.8.0' = if (de
     location: location
     skuName: 'Standard'
     tags: _tags
-    availabilityZones: locationSupportsZones && useZoneRedundancy ? [1, 2, 3] : null
+    // Explicitly set to empty array for regions that don't support availability zones
+    availabilityZones: []
 
     // Configuration for the Public IP that the module will create
     publicIPAddressObject: {
       // Name for the Public IP resource
       name: '${const.abbrs.networking.publicIPAddress}bastion-${resourceToken}'
-      allocationMethod: 'Static'
+      publicIPAllocationMethod: 'Static'
       skuName: 'Standard'
       skuTier: 'Regional'
-      zones: locationSupportsZones && useZoneRedundancy ? [1, 2, 3] : null
+      // Explicitly set to empty array for regions that don't support availability zones (westus)
+      availabilityZones: []
       tags: _tags
     }
   }
