@@ -27,6 +27,7 @@
     "useCAppAPIKey":                         { "value": "${USE_CAPP_API_KEY}" },
     "useCMK":                                { "value": false },
     "useZoneRedundancy":                     { "value": true },
+    "aiFoundryAccountResourceId":            { "value": null },
     "aiSearchResourceId":                    { "value": null },
     "aiFoundryStorageAccountResourceId":     { "value": null },
     "aiFoundryCosmosDBAccountResourceId":    { "value": null },
@@ -52,6 +53,7 @@
     "useExistingVNet":                       { "value": false },
     "deploySubnets":                         { "value": true },
     "vnetName":                              { "value": "VNET-AZR-GENIA-PREPRD-EASTUSMS" },
+    "vnetAddressPrefixes":                   { "value": [ "192.168.0.0/16" ] },
     "virtualNetworkName":                    { "value": "" },
     "virtualNetworkResourceGroup":           { "value": "" },
     "aiFoundryAccountName":                  { "value": "aifoundryazrgeniaeastusms" },
@@ -111,16 +113,6 @@
           "apiVersion":     "2025-01-01-preview",
           "capacity":       40,
           "canonical_name": "CHAT_DEPLOYMENT_NAME"
-        },
-        {
-          "name":           "text-embedding",
-          "model":          "text-embedding-3-large",
-          "modelFormat":    "OpenAI",
-          "type":           "Standard",
-          "version":        "1",
-          "apiVersion":     "2025-01-01-preview",
-          "capacity":       40,
-          "canonical_name": "EMBEDDING_DEPLOYMENT_NAME"
         }
       ]
     },
@@ -253,3 +245,4 @@
     }
   }
 }
+

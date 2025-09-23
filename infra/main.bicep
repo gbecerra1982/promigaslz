@@ -662,7 +662,7 @@ module testVmBastionHost 'br/public:avm/res/network/bastion-host:0.8.0' = if (de
     location: location
     skuName: 'Standard'
     tags: _tags
-    availabilityZones: useZoneRedundancy ? [1, 2, 3] : []
+    availabilityZones: null
 
     // Configuration for the Public IP that the module will create
     publicIPAddressObject: {
@@ -671,7 +671,7 @@ module testVmBastionHost 'br/public:avm/res/network/bastion-host:0.8.0' = if (de
       allocationMethod: 'Static'
       skuName: 'Standard'
       skuTier: 'Regional'
-      zones: useZoneRedundancy ? [1, 2, 3] : []
+      zones: null
       tags: _tags
     }
   }
